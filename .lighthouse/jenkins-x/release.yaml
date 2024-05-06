@@ -1,0 +1,29 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  creationTimestamp: null
+  name: jx3-release
+spec:
+  params:
+    - name: platform
+      value: linux/amd64
+
+  # IMPORTANT: DO NOT MODIFY BELOW THIS COMMENT
+  # This section is managed by the DEVEXP team.
+  # Any modifications may cause unintended issues.
+  pipelineRef:
+    resolver: git
+    params:
+      - name: repo
+        value: jx3-catalog
+      - name: revision
+        value: main
+      - name: pathInRepo
+        value: /dm-standard/pipelines/dm-release/v1/pipeline.yaml
+  workspaces:
+    - name: shared-workspace
+      emptyDir: {}
+  podTemplate: {}
+  serviceAccountName: tekton-bot
+  timeout: 00h30m0s
+status: {}

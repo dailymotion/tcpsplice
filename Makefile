@@ -1,14 +1,16 @@
 #!/bin/sh
 
 # build targets
+all: tcpsplice
+
 tcpsplice: resources.go *.go
-	@env GOPATH=/tmp/go go get -d && env GOPATH=/tmp/go CGO_ENABLED=0 go build -trimpath -o tcpsplice
-	@-strip tcpsplice 2>/dev/null || true
-	@-upx -9 tcpsplice 2>/dev/null || true
-resources.go: rpack resources/*
-	@-./rpack resources
-rpack:
-	@-go get github.com/pyke369/golang-support/rpack/cmd && env GOBIN=$$(pwd) go install github.com/pyke369/golang-support/rpack/cmd && mv cmd rpack
+	go get -d && env CGO_ENABLED=0 go build -trimpath -o tcpsplice
+	strip tcpsplice 2>/dev/null || true
+	upx -9 tcpsplice 2>/dev/null || true
+resources.go: scripts/rpack resources/*
+	scripts/rpack resources
+scripts/rpack: scripts/rpack.go
+	@$(MAKE) -C scripts
 clean:
 distclean:
 	@rm -f tcpsplice *.upx resources.go rpack
