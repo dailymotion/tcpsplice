@@ -9,15 +9,12 @@ spec:
       value: .
     - name: platform
       value: linux/amd64
-
-# IMPORTANT: DO NOT MODIFY BELOW THIS COMMENT
-# This section is managed by the DEVEXP team.
-# Any modifications may cause unintended issues.
+  # IMPORTANT: DO NOT MODIFY BELOW THIS COMMENT
+  # This section is managed by the DEVEXP team.
+  # Any modifications may cause unintended issues.
   pipelineRef:
-    resolver: git
+    resolver: dm-git
     params:
-      - name: repo
-        value: jx3-catalog
       - name: revision
         value: main
       - name: pathInRepo
