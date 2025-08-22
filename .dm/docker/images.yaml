@@ -1,0 +1,14 @@
+apiVersion: build.devexp.dailymotion.com/v1beta1
+kind: ImageBuild
+spec:
+  images:
+    - name: tcpsplice
+      phases:
+        presubmit:
+          enabled: true
+          targets:
+            - stage: null
+        postsubmit:
+          enabled: true
+          targets:
+            - stage: null
