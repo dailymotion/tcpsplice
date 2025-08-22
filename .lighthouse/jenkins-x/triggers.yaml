@@ -5,7 +5,6 @@ spec:
     - name: jx3-init-build-push
       context: jx3-init-build-push
       always_run: true
-      optional: false
       source: init-build-push.yaml
   postsubmits:
     - name: jx3-release
