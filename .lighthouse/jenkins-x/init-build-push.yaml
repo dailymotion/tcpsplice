@@ -7,12 +7,7 @@ spec:
   # This section is managed by the DEVEXP team.
   # Any modifications may cause unintended issues.
   pipelineRef:
-    resolver: dm-git
-    params:
-      - name: revision
-        value: main
-      - name: pathInRepo
-        value: /dm-standard/pipelines/dm-init-build-push/v2/pipeline.yaml
+    name: dm-init-build-push-v2
   workspaces:
     - name: shared-workspace
       emptyDir: {}

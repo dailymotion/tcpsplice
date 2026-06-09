@@ -3,17 +3,11 @@ kind: PipelineRun
 metadata:
   name: jx3-release
 spec:
-  
   # IMPORTANT: DO NOT MODIFY BELOW THIS COMMENT
   # This section is managed by the DEVEXP team.
   # Any modifications may cause unintended issues.
   pipelineRef:
-    resolver: dm-git
-    params:
-      - name: revision
-        value: main
-      - name: pathInRepo
-        value: /dm-standard/pipelines/dm-release/v2/pipeline.yaml
+    name: dm-release-v2
   workspaces:
     - name: shared-workspace
       emptyDir: {}
